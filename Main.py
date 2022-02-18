@@ -1,6 +1,9 @@
 import discord
+
 import Saki_Functions as skf
 import Saki_Helper as skh
+
+import Word.W_Helper as wh
 
 client = discord.Client()
 
@@ -21,24 +24,28 @@ async def on_message(message):
     msg_received = message.content
     msg_send = message.channel.send
     
-    msg_a = 'Inicie'
+    msg_final = 'Empty'
 
     #Reply
     if msg_received.startswith(Call_sign):
 
-        #Experimental!-------------------------------------------------
-        testoo = skf.finder(msg_received)
-        if testoo[0]:
-            msg_a = testoo[1]
+        #Saki AI (DO NOT DELETE!!)
+        true_message = skh.message_cleanner(msg_received)
+
+        saki = skf.finder(true_message)
+        if saki[0]:
+            if saki[1] == 'word':
+                msg_final = wh.match(true_message)
+            elif saki[1] == 'excel':
+                msg_final = 'Excel'
+            elif saki[1] == 'power point':
+                msg_final = 'Power Point'
+            else:
+                msg_final = 'Empty++'
         else:
-            msg_a = testoo[1]
-
-        #Experimental!-------------------------------------------------
-
-        #message builder
-        msg_final = skh.sentence_starter() + '.'
+            msg_final = 'No c xd'
 
         #Reply
-        await msg_send(msg_a)
+        await msg_send(msg_final)
 
 client.run('TOKEN')

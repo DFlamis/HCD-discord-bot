@@ -1,5 +1,6 @@
 from operator import invert
 import random as rn
+import re
 
 saludo = 'hola'
 
@@ -13,7 +14,7 @@ def sentence_starter():
     return sorting_hat(inventory)
 
 def second():
-    inventory = ['ve al grupo','Busca el grupo','Dirigete al grupo','selecciona el grupo']
+    inventory = ['ve al grupo','busca el grupo','dirigete al grupo','selecciona el grupo']
     return sorting_hat(inventory)
 
 
@@ -24,3 +25,14 @@ def conncetors():
 def more_conncectors():
     inventory = ['y','entonces','luego','ahora']
     return sorting_hat(inventory)
+
+#Others
+def is_bigger(old,new):
+    if new > old:
+        return True
+    else:
+        return False
+
+def message_cleanner(message):
+    true_message = message.replace('?','').replace(',','').replace('.','').lower()
+    return true_message
