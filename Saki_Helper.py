@@ -36,3 +36,7 @@ def is_bigger(old,new):
 def message_cleanner(message):
     true_message = message.replace('?','').replace(',','').replace('.','').lower()
     return true_message
+
+def no_accent_mark(message):
+    true_message = message.replace('á','a').replace('é','e').replace('í','i').replace('ó','o').replace('ú','u')
+    return true_message
