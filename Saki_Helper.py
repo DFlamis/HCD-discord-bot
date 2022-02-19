@@ -10,7 +10,7 @@ def sorting_hat(items):
     return The_Choosen_One
 
 def sentence_starter():
-    inventory = ['Primero ve a la cinta','Busca la cinta','Dirigete a la cinta','selecciona la cinta']
+    inventory = ['Primero ve a la cinta','Busca la cinta','Dirigete a la cinta','Selecciona la cinta']
     return sorting_hat(inventory)
 
 def second():
