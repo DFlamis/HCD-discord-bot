@@ -1,4 +1,4 @@
-#Look for 
+#Looking for 
 def finder(mensaje):
     office = ['word','power point','excel']
     words = mensaje.split(' ')

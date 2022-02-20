@@ -12,7 +12,7 @@ Call_sign = '!hcd'
 #Start
 @client.event
 async def on_ready():
-    print('Listoh papuh, iniciado como {0.user}'.format(client))
+    print('Saki IA iniciada como: {0.user}'.format(client))
 
 #Recive mensajes
 @client.event
@@ -29,7 +29,7 @@ async def on_message(message):
     #Reply
     if msg_received.startswith(Call_sign):
 
-        #Saki AI (DO NOT DELETE!!)
+        #Saki IA (DO NOT DELETE!!)
         true_message = skh.message_cleanner(msg_received)
 
         saki = skf.finder(true_message)

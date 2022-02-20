@@ -1,28 +1,5 @@
 import Saki_Helper as skh
 
-#Features BETA (It Works)
-# DFlamis = {'home':{
-#             'clipboard':['copiar','pegar','copiar formato','cortar'],'font':['negrita','cursiva','subrayado'],'paragraph':[]},
-#             'insert':[],
-#             'draw':[],
-#             'design':[],
-#             'layout':[],
-#             'references':[],
-#             'mailings':[],
-#             'reviews':[]}
-
-#Features Experimental LIST
-# DFlamis = {'home':{'clipboard':{'copiar':['copiar','copio'],'pegar':['pegar','pego'],'cortar':['corto','cortar'],'copiar formato':['copio','copiar','formato']},
-#                     'font':{'fuente':['tipo','letra','fuente','cambiar','cambio','letra'],'tamaño':[],'borrar formato':[],'negrita':[],'cursiva':[],'subrayado':[],'':[],'':[],'':[],'':[],'':[],'':[],'':[],'':[],},
-#                     'paragraph':{}},
-#             'insert':[],
-#             'draw':[],
-#             'design':[],
-#             'layout':[],
-#             'references':[],
-#             'mailings':[],
-#             'reviews':[]}
-
 #Features
 DFlamis = {'home':{'clipboard':{'copiar':{'copiar','copio'},
                                 'pegar':{'pegar','pego'},'cortar':{'corto','cortar'},
@@ -34,13 +11,23 @@ DFlamis = {'home':{'clipboard':{'copiar':{'copiar','copio'},
                                     'cursiva':{'inclino','letra','inclinada','chueca'},
                                     'subrayado':{'subrayo','subrrayo','subrayaba','subrrayaba','raya', 'abajo','rayita'}},
                     'paragraph':{}},
-            'insert':[],
-            'draw':[],
-            'design':[],
-            'layout':[],
-            'references':[],
-            'mailings':[],
-            'reviews':[]}
+            'insert':{},
+            'draw':{},
+            'design':{},
+            'layout':{'configurar páginas':{'márgenes':{},
+                                            'orientacion':{},
+                                            'tamaño':{},
+                                            'columnas':{'una':{'un','una','columna','1'},
+                                                        'dos':{'dos','columna','columnas','2'},
+                                                        'tres':{'tres','columna','columnas','3'},
+                                                        'más columnas':{'número de columnas':{'columna','columnas','varias','cuatro','cinco','muchas'},
+                                                                        'línea entre columnas':{'raya','rayita','entre','enmedio','medio','columna','columnas','linea','lineas','liniesita'}}},
+                                            'saltos':{}},
+                        'párrafo':{},
+                        'organizar':{}},
+            'references':{},
+            'mailings':{},
+            'reviews':{}}
 
 
 def match(message):
@@ -51,15 +38,40 @@ def match(message):
     variable = 0
     answer = ''
     
-    for n in DFlamis:
-        for m in DFlamis[n]:
-            for o in DFlamis[n][m]:
+    for n in DFlamis: #Ribbon Tabs
+        for m in DFlamis[n]: #Group Tabs
+            for o in DFlamis[n][m]: #Buttoms
 
-                set_d = DFlamis[n][m][o]
+                if skh.more_options(DFlamis[n][m][o]): #Evitar error por falta de indice
 
-                if skh.is_bigger(variable,len(set_m & set_d)):
-                    variable = len(set_m & set_d)
+                    for p in DFlamis[n][m][o]: #Option Box
 
-                    answer = skh.sentence_starter()+' ' + n + ' ' + skh.second() + ' ' + m + ' ' + skh.more_conncectors() + ' ' + skh.conncetors() + ' ' + o
+                        if skh.more_options(DFlamis[n][m][o][p]): #Evitar error por falta de indice
+
+                            for q in DFlamis[n][m][o][p]: #More options
+                                
+                                set_d = DFlamis[n][m][o][p][q]
+
+                                if skh.is_bigger(variable,len(set_m & set_d)):
+                                    variable = len(set_m & set_d)
+
+                                    answer = skh.sentence_starter()+' ' + n + ' ' + skh.second() + ' ' + m + ' ' + skh.more_conncectors() + ' ' + skh.conncetors() + ' ' + o + ' ' + skh.more_conncectors() + ' ' + skh.conncetors() + ' ' + p  + ' ' + skh.more_conncectors() + ' ' + skh.conncetors() + ' ' + q
+
+                        else:
+                            set_d = DFlamis[n][m][o][p]
+
+                            if skh.is_bigger(variable,len(set_m & set_d)):
+                                variable = len(set_m & set_d)
+
+                                answer = skh.sentence_starter()+' ' + n + ' ' + skh.second() + ' ' + m + ' ' + skh.more_conncectors() + ' ' + skh.conncetors() + ' ' + o  + ' ' + skh.more_conncectors() + ' ' + skh.conncetors() + ' ' + p
+
+                else: #El boton no tiene mas opciones
+
+                    set_d = DFlamis[n][m][o]
+
+                    if skh.is_bigger(variable,len(set_m & set_d)):
+                        variable = len(set_m & set_d)
+
+                        answer = skh.sentence_starter()+' ' + n + ' ' + skh.second() + ' ' + m + ' ' + skh.more_conncectors() + ' ' + skh.conncetors() + ' ' + o
 
     return answer
