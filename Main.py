@@ -30,7 +30,7 @@ async def on_message(message):
     if msg_received.startswith(Call_sign):
 
         #Saki IA (DO NOT DELETE!!)
-        true_message = skh.message_cleanner(msg_received)
+        true_message = skf.message_cleanner(msg_received)
 
         saki = skf.finder(true_message)
         if saki[0]:

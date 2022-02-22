@@ -31,14 +31,6 @@ def is_bigger(old,new):
     else:
         return False
 
-def message_cleanner(message):
-    true_message = message.replace('?','').replace(',','').replace('.','').lower()
-    return true_message
-
-def no_accent_mark(message):
-    true_message = message.replace('á','a').replace('é','e').replace('í','i').replace('ó','o').replace('ú','u')
-    return true_message
-
 #if have more options return True
 def more_options(group):
     if type(group) == dict:
