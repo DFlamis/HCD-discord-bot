@@ -12,7 +12,7 @@ Call_sign = '!hcd'
 #Start
 @client.event
 async def on_ready():
-    print('Saki IA iniciada como: {0.user}'.format(client))
+    print('Saki assistant started as: {0.user}'.format(client))
 
 #Recive mensajes
 @client.event
@@ -35,7 +35,9 @@ async def on_message(message):
         saki = skf.finder(true_message)
         if saki[0]:
             if saki[1] == 'word':
-                msg_final = wh.match(true_message)
+                # msg_final = wh.match(true_message)
+                a = wh.match(true_message)
+                msg_final = skf.sentence_builder(a)
             elif saki[1] == 'excel':
                 msg_final = 'Excel'
             elif saki[1] == 'power point':

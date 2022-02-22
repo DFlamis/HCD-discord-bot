@@ -36,7 +36,8 @@ def match(message):
 
     set_m = set(list_TM)
     variable = 0
-    answer = ''
+    # answer = ''
+    answers = ''
     
     for n in DFlamis: #Ribbon Tabs
         for m in DFlamis[n]: #Group Tabs
@@ -55,7 +56,9 @@ def match(message):
                                 if skh.is_bigger(variable,len(set_m & set_d)):
                                     variable = len(set_m & set_d)
 
-                                    answer = skh.sentence_starter()+' ' + n + ' ' + skh.second() + ' ' + m + ' ' + skh.more_conncectors() + ' ' + skh.conncetors() + ' ' + o + ' ' + skh.more_conncectors() + ' ' + skh.conncetors() + ' ' + p  + ' ' + skh.more_conncectors() + ' ' + skh.conncetors() + ' ' + q
+                                    # answer = skh.sentence_starter()+' ' + n + ' ' + skh.second() + ' ' + m + ' ' + skh.more_conncectors() + ' ' + skh.conncetors() + ' ' + o + ' ' + skh.more_conncectors() + ' ' + skh.conncetors() + ' ' + p  + ' ' + skh.more_conncectors() + ' ' + skh.conncetors() + ' ' + q
+
+                                    answers = n+' '+m+' '+o+' '+p+' '+q
 
                         else:
                             set_d = DFlamis[n][m][o][p]
@@ -63,7 +66,9 @@ def match(message):
                             if skh.is_bigger(variable,len(set_m & set_d)):
                                 variable = len(set_m & set_d)
 
-                                answer = skh.sentence_starter()+' ' + n + ' ' + skh.second() + ' ' + m + ' ' + skh.more_conncectors() + ' ' + skh.conncetors() + ' ' + o  + ' ' + skh.more_conncectors() + ' ' + skh.conncetors() + ' ' + p
+                                # answer = skh.sentence_starter()+' ' + n + ' ' + skh.second() + ' ' + m + ' ' + skh.more_conncectors() + ' ' + skh.conncetors() + ' ' + o  + ' ' + skh.more_conncectors() + ' ' + skh.conncetors() + ' ' + p
+
+                                answers = n+' '+m+' '+o+' '+p
 
                 else: #El boton no tiene mas opciones
 
@@ -72,6 +77,8 @@ def match(message):
                     if skh.is_bigger(variable,len(set_m & set_d)):
                         variable = len(set_m & set_d)
 
-                        answer = skh.sentence_starter()+' ' + n + ' ' + skh.second() + ' ' + m + ' ' + skh.more_conncectors() + ' ' + skh.conncetors() + ' ' + o
+                        # answer = skh.sentence_starter()+' ' + n + ' ' + skh.second() + ' ' + m + ' ' + skh.more_conncectors() + ' ' + skh.conncetors() + ' ' + o
 
-    return answer
+                        answers = n+' '+m+' '+o
+
+    return answers
