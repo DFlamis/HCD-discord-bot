@@ -9,9 +9,10 @@ def finder(mensaje):
             return True,n.lower()
     return False,'None'
 
-def sentence_builder(answers):
+#This function return the full answer
+def sentence_builder(simple_answer):
     n = 3
-    key_words = answers.split(' ')
+    key_words = simple_answer.split(' ')
 
     answer = skh.sentence_starter()+' '+key_words[0]+', '+skh.second()+' '+key_words[1]+', '+skh.more_conncectors()+' '+skh.conncetors()+' '+key_words[2]
 

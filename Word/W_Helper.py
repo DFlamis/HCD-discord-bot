@@ -56,8 +56,6 @@ def match(message):
                                 if skh.is_bigger(variable,len(set_m & set_d)):
                                     variable = len(set_m & set_d)
 
-                                    # answer = skh.sentence_starter()+' ' + n + ' ' + skh.second() + ' ' + m + ' ' + skh.more_conncectors() + ' ' + skh.conncetors() + ' ' + o + ' ' + skh.more_conncectors() + ' ' + skh.conncetors() + ' ' + p  + ' ' + skh.more_conncectors() + ' ' + skh.conncetors() + ' ' + q
-
                                     answers = n+' '+m+' '+o+' '+p+' '+q
 
                         else:
@@ -65,8 +63,6 @@ def match(message):
 
                             if skh.is_bigger(variable,len(set_m & set_d)):
                                 variable = len(set_m & set_d)
-
-                                # answer = skh.sentence_starter()+' ' + n + ' ' + skh.second() + ' ' + m + ' ' + skh.more_conncectors() + ' ' + skh.conncetors() + ' ' + o  + ' ' + skh.more_conncectors() + ' ' + skh.conncetors() + ' ' + p
 
                                 answers = n+' '+m+' '+o+' '+p
 
@@ -76,8 +72,6 @@ def match(message):
 
                     if skh.is_bigger(variable,len(set_m & set_d)):
                         variable = len(set_m & set_d)
-
-                        # answer = skh.sentence_starter()+' ' + n + ' ' + skh.second() + ' ' + m + ' ' + skh.more_conncectors() + ' ' + skh.conncetors() + ' ' + o
 
                         answers = n+' '+m+' '+o
 

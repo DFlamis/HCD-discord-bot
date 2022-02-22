@@ -35,13 +35,15 @@ async def on_message(message):
         saki = skf.finder(true_message)
         if saki[0]:
             if saki[1] == 'word':
-                # msg_final = wh.match(true_message)
-                a = wh.match(true_message)
-                msg_final = skf.sentence_builder(a)
+                simple_answer = wh.match(true_message)
+                msg_final = skf.sentence_builder(simple_answer)
+
             elif saki[1] == 'excel':
                 msg_final = 'Excel'
+
             elif saki[1] == 'power point':
                 msg_final = 'Power Point'
+                
             else:
                 msg_final = 'Empty++'
         else:
