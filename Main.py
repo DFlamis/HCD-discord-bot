@@ -7,7 +7,7 @@ import Word.W_Helper as wh
 
 client = discord.Client()
 
-Call_sign = '!hcd'
+Call_sign = '!'
 
 #Start
 @client.event
@@ -35,7 +35,8 @@ async def on_message(message):
         saki = skf.finder(true_message)
         if saki[0]:
             if saki[1] == 'word':
-                simple_answer = wh.match(true_message)
+                true_message = true_message.replace('word','')
+                simple_answer = skf.match(true_message,wh.DFlamis)
                 msg_final = skf.sentence_builder(simple_answer)
 
             elif saki[1] == 'excel':
